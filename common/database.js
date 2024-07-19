@@ -7,3 +7,4 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 });
 
 module.exports = sequelize;
+// test
