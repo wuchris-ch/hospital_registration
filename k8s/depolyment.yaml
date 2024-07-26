@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hospital-registration-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hospital-registration-app
+  template:
+    metadata:
+      labels:
+        app: hospital-registration-app
+    spec:
+      containers:
+        - name: hospital-registration-app
+          image: imortaltears/hospital_registration_app:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: POSTGRES_DB
+              value: "hospitaldb"
+            - name: POSTGRES_USER
+              value: "youruser"
+            - name: POSTGRES_PASSWORD
+              value: "yourpassword"
+            - name: JWT_SECRET
+              value: "jwt_secret"
+            - name: DATABASE_URL
+              value: "postgres://youruser:yourpassword@hospital-registration-db:5432/hospitaldb"
