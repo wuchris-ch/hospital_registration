@@ -1,0 +1,11 @@
+---
+arch: "x86_64" # arm64 for silicon macs
+images:
+  - location: "https://cloud-images.ubuntu.com/impish/current/impish-server-cloudimg-amd64.img"
+    arch: "x86_64"
+mounts:
+  - location: "~"
+  - location: "/tmp/lima"
+    writable: true
+memory: "4GiB"
+cpus: 2
